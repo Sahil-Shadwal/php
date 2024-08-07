@@ -7,28 +7,34 @@
         body{
             display: grid;
             place-items: center;
-            height: 90vh;
+            height: 50vh;
             margin: 0;
             font-size: 2rem;
+            margin-top: 1rem;
             font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
     </style>
 </head>
 <body>
-    <?php 
-        $name = "Dark Matters";
-        $read = true;
+    <h1>Recommended Books</h1>
 
-        if($read){
-            $message = "You have read $name";
-        }else {
-            $message = "You have not read $name";
-        }
+    <?php
+        $books = [
+            "Do Android Dream of Electric Sheep",
+            "The Langoliers",
+            "Hail Mary"
+        ]
     ?>
-    <h1>
-        <!-- <?php echo $message; ?> -->
-        <?= $message; ?>
-    </h1>
+
+    <ul>
+        <!-- <?php foreach ($books as $book) {
+            echo "<li>{$book}™</li>";
+        } ?> -->
+
+        <?php foreach ($books as $book) : ?>
+            <li><?= $book ?></li>
+        <?php endforeach; ?>
+    </ul>
     
 </body>
 </html>
