@@ -27,13 +27,16 @@
     ?>
 
     <ul>
+
+        <?= $books[1] ?>
+
         <!-- <?php foreach ($books as $book) {
             echo "<li>{$book}™</li>";
         } ?> -->
 
-        <?php foreach ($books as $book) : ?>
+        <!-- <?php foreach ($books as $book) : ?>
             <li><?= $book ?></li>
-        <?php endforeach; ?>
+        <?php endforeach; ?> -->
     </ul>
     
 </body>
