@@ -37,19 +37,36 @@
             'author' => 'Andy Weir',
             'releaseYear' => 2011,
             'purchaseUrl' => 'https://shadwal.site'
-           ]
-        ]
+           ],
+        ];
+
+        function filterByAuthor($books, $author) {
+            $filteredBooks = [];
+
+            foreach ($books as $book) {
+                if($book['author'] === $author) {
+                    $filteredBooks[] = $book;
+                }
+            }
+            return $filteredBooks;
+        }
     ?>
 
     <ul>
-        <?php foreach ($books as $book) : ?>
-            <li>
-                <a href="<?= $book['purchaseUrl']; ?>">
-                    <?= $book['name']; ?>(<?= $book['releaseYear']?>)
-                </a> 
-            </li>
+        <?php foreach (filterByAuthor($books,'Andy Weir') as $book) : ?>
+                <li>
+                    <a href="<?= $book['purchaseUrl']; ?>">
+                        <?= $book['name']; ?> (<?= $book['releaseYear']?>)
+                    </a> 
+                </li>
+            
         <?php endforeach; ?>
     </ul>
+
+    <!-- <p>
+        <?= filterByAuthor($books); ?>
+
+    </p> -->
 
    
     
