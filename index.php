@@ -23,11 +23,19 @@
            [
             'name' => 'Do Androids Dream of Electric Sheep?',
             'author' => 'Philip K. Dick',
-            'purchaseUrl '=> 'https://shadwal.site'
+            'releaseYear' => 2021,
+            'purchaseUrl' => 'https://shadwal.site'
            ],
            [
             'name' => 'Project Hail Mary',
             'author' => 'Andy Weir',
+            'releaseYear' => '2011',
+            'purchaseUrl' => 'https://shadwal.site'
+           ],
+           [
+            'name' => 'The Martian',
+            'author' => 'Andy Weir',
+            'releaseYear' => 2011,
             'purchaseUrl' => 'https://shadwal.site'
            ]
         ]
@@ -36,7 +44,9 @@
     <ul>
         <?php foreach ($books as $book) : ?>
             <li>
-                <?= $book['name']; ?> 
+                <a href="<?= $book['purchaseUrl']; ?>">
+                    <?= $book['name']; ?>(<?= $book['releaseYear']?>)
+                </a> 
             </li>
         <?php endforeach; ?>
     </ul>
