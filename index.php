@@ -29,7 +29,7 @@
            [
             'name' => 'Project Hail Mary',
             'author' => 'Andy Weir',
-            'releaseYear' => '2011',
+            'releaseYear' => 1968,
             'purchaseUrl' => 'https://shadwal.site'
            ],
            [
@@ -39,21 +39,23 @@
             'purchaseUrl' => 'https://shadwal.site'
            ],
         ];
+        // $filterByAuthor = function ($books, $author) {
 
-        function filterByAuthor($books, $author) {
-            $filteredBooks = [];
+        function filter($items, $key, $value) {
+            $filteredItems = [];
 
-            foreach ($books as $book) {
-                if($book['author'] === $author) {
-                    $filteredBooks[] = $book;
+            foreach ($items as $item) {
+                if($item[$key] === $value) {
+                    $filteredItems[] = $item;
                 }
             }
-            return $filteredBooks;
+            return $filteredItems;
         }
+        $filteredBooks = filter($books,'releaseYear', 2011);
     ?>
 
     <ul>
-        <?php foreach (filterByAuthor($books,'Andy Weir') as $book) : ?>
+        <?php foreach ($filteredBooks as $book) : ?>
                 <li>
                     <a href="<?= $book['purchaseUrl']; ?>">
                         <?= $book['name']; ?> (<?= $book['releaseYear']?>)
