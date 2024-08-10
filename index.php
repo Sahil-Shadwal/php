@@ -5,13 +5,15 @@ require 'functions.php';
 
 // require 'router.php';
 
-$dns = "mysql:host=localhost;port=3306;dbname=myass;charset=utf8mb4";
+$dns = "mysql:host=localhost;port=3306;user=root;password=sexy;dbname=myass;charset=utf8mb4";
 
-$pdo = new PDO($dns, 'root', 'sexy');
+$pdo = new PDO($dns);
 
 $statement = $pdo->prepare("select * from posts");
 $statement->execute();
 
-$posts = $statement->fetchAll();
+$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-dd($posts);
+foreach ($posts as $post) {
+    echo "<li>" . $post['title'] . "</li>";
+}
