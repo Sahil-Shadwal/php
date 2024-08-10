@@ -5,22 +5,13 @@ require 'functions.php';
 
 // require 'router.php';
 
-class Person
-{
-    public $name;
-    public $age;
+$dns = "mysql:host=localhost;port=3306;dbname=myass;charset=utf8mb4";
 
-    public function breathe()
-    {
-        // echo "breathing fire";
-        echo $this->name . 'is breathing';
-    }
-}
+$pdo = new PDO($dns, 'root', 'sexy');
 
-$person = new Person();
+$statement = $pdo->prepare("select * from posts");
+$statement->execute();
 
-$person->name = "Jack Sparrow";
-$person->age = 21;
+$posts = $statement->fetchAll();
 
-// dd($person->breathe());
-$person->breathe();
+dd($posts);
