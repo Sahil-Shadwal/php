@@ -7,7 +7,9 @@ require 'functions.php';
 
 require 'Database.php';
 
-$db = new Database();
+$config = require 'config.php';
+
+$db = new Database($config['database']);
 
 $posts = $db->query('Select * from posts')->fetchAll(); //::scope resolution operator -> it gives us the access to the static and constant that was defined in the class
 
