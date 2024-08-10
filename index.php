@@ -11,8 +11,9 @@ $config = require 'config.php';
 
 $db = new Database($config['database']);
 
-$posts = $db->query('Select * from posts')->fetchAll(); //::scope resolution operator -> it gives us the access to the static and constant that was defined in the class
+$id = $_GET['id'];
+$query = "select * from posts where id = ?";
 
-foreach ($posts as $post) {
-    echo "<li>" . $post['title'] . "</li>";
-}
+$posts = $db->query($query, [$id])->fetch(); //::scope resolution operator -> it gives us the access to the static and constant that was defined in the class
+
+dd($posts);
